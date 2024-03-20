@@ -46,6 +46,25 @@ public class Parser {
     states = new States();
 
     // TODO: Call methods to compute the states and parsing tables here.
+    State closure = computeClosure(new Item( grammar.startRule, 0, "$"), grammar);
+    System.out.println(closure.toString());
+    states.addState(closure);
+
+    boolean moreStates = true;
+    System.out.println("starting while loop");
+    while (moreStates) {
+      moreStates = false;
+      System.out.println("starting for i loop");
+      for (int i = 0; i < states.size(); i++) {
+        System.out.println("starting for each symbol loop");
+        for (int j = 0; j < grammar.symbols.size(); j++) {
+          State stateOnSymbol = GOTO(states.getState(i), grammar.symbols.get(j) ,grammar);
+          System.out.println("stateOnSymbol: " + stateOnSymbol.toString());
+          moreStates = moreStates || states.addState(stateOnSymbol);
+        }
+      }
+    }
+    System.out.println("States: " + states.toString());
   }
 
   public States getStates() {
@@ -58,16 +77,37 @@ public class Parser {
     closure.addItem(I);
     boolean moreItems = true;
     while (moreItems) {
+      moreItems = false;
       for (int i = 0; i < closure.size(); i++) {
         for (Rule rule: grammar.rules) {
-          if (rule.getLhs().equals(closure.getItem(i).getNextNextSymbol())) {
-            for ()
-            closure.addItem(new Item(rule, 0, "a"));
+          if (rule.getLhs().equals(closure.getItem(i).getNextSymbol())) {
+            String nextNextSymbol = closure.getItem(i).getNextNextSymbol();
+            if (nextNextSymbol == null) {
+              moreItems = moreItems || closure.addItem(new Item(rule, 0, closure.getItem(i).getA()));
+            }
+            else {
+              if (grammar.isTerminal(nextNextSymbol)) {
+                moreItems = moreItems || closure.addItem(new Item(rule, 0, nextNextSymbol));
+              }
+              else {
+                HashSet<String> firstSymbols = grammar.first.get(nextNextSymbol);
+                if (firstSymbols != null && !firstSymbols.isEmpty()) {
+                  for(String item: grammar.first.get(nextNextSymbol)) {
+                    moreItems = moreItems || closure.addItem(new Item(rule, 0, item));
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
+//    printClosure(closure);
     return closure;
+  }
+
+  static public void printClosure(State closure) {
+    System.out.println(closure.toString());
   }
 
   // TODO: Implement this method.
@@ -75,6 +115,19 @@ public class Parser {
   //   the given state on the symbol X.
   static public State GOTO(State state, String X, Grammar grammar) {
     State ret = new State();
+    for (int i = 0; i < state.size(); i++) {
+      if (state.getItem(i).getNextSymbol() != null && state.getItem(i).getNextSymbol().equals(X)) {
+        Item item = state.getItem(i);
+        ret.addItem(item.advance());
+      }
+    }
+    for (int i = 0; i < state.size(); i++) {
+      Item item = state.getItem(i);
+      State closure = computeClosure(item, grammar);
+      for (int j = 0; j < closure.size(); j++) {
+        ret.addItem(closure.getItem(j));
+      }
+    }
     return ret;
   }
 

@@ -1,2 +1,12 @@
-.idea
 out/
+.idea/
+Action.java
+Grammar.java
+Item.java
+ParseException.java
+Tests.java
+Util.java
+parser/.idea/
+lexer/
+parser/util/
+cfgparser/

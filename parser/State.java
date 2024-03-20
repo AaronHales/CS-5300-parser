@@ -26,7 +26,7 @@ public class State implements Comparable<State> {
     }
 
     public boolean addItem(Item item) {
-        if (items.contains(item)) {
+        if (!items.contains(item)) {
             items.add(item);
             return true;
         }
@@ -34,7 +34,7 @@ public class State implements Comparable<State> {
     }
 
     public Item getItem(int pos) {
-        if (pos < items.size() - 1) {
+        if (pos < items.size()) {
             return items.get(pos);
         }
         return null;
