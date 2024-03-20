@@ -28,6 +28,7 @@ public class State implements Comparable<State> {
     public boolean addItem(Item item) {
         if (!items.contains(item)) {
             items.add(item);
+            itemSet.add(item);
             return true;
         }
         return false;

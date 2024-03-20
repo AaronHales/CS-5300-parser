@@ -112,58 +112,58 @@ public class Main {
   }
 
   public static void testTables(Tests tests) throws FileNotFoundException, IOException {
-//    {
-//      Parser parser = new Parser("data/Simple.cfg");
-//      String actionTable = parser.actionTableToString();
-//      tests.test(countMatches(actionTable, 'S'), 2); // 2 shifts
-//      tests.test(countMatches(actionTable, 'R'), 4); // 4 reduces
-//      tests.test(countMatches(actionTable, "acc"), 1); // 1 accept
-//    }
-//    {
-//      Parser parser = new Parser("data/Paren.cfg");
-//      String actionTable = parser.actionTableToString();
-//      tests.test(countMatches(actionTable, 'S'), 10); // 10 shifts
-//      tests.test(countMatches(actionTable, 'R'), 18); // 18 reduces (2 of the Rs are in the header)
-//      tests.test(countMatches(actionTable, "acc"), 1); // 1 accept
-//    }
-//    {
-//      Parser parser = new Parser("data/Expr.cfg");
-//      String actionTable = parser.actionTableToString();
-//      tests.test(countMatches(actionTable, 'S'), 66);
-//      tests.test(countMatches(actionTable, 'R'), 91);
-//      tests.test(countMatches(actionTable, "acc"), 1);
-//    }
+    {
+      Parser parser = new Parser("data/Simple.cfg");
+      String actionTable = parser.actionTableToString();
+      tests.test(countMatches(actionTable, 'S'), 2); // 2 shifts
+      tests.test(countMatches(actionTable, 'R'), 4); // 4 reduces
+      tests.test(countMatches(actionTable, "acc"), 1); // 1 accept
+    }
+    {
+      Parser parser = new Parser("data/Paren.cfg");
+      String actionTable = parser.actionTableToString();
+      tests.test(countMatches(actionTable, 'S'), 10); // 10 shifts
+      tests.test(countMatches(actionTable, 'R'), 18); // 18 reduces (2 of the Rs are in the header)
+      tests.test(countMatches(actionTable, "acc"), 1); // 1 accept
+    }
+    {
+      Parser parser = new Parser("data/Expr.cfg");
+      String actionTable = parser.actionTableToString();
+      tests.test(countMatches(actionTable, 'S'), 66);
+      tests.test(countMatches(actionTable, 'R'), 91);
+      tests.test(countMatches(actionTable, "acc"), 1);
+    }
   }
 
   public static void testParser(Tests tests) throws FileNotFoundException, IOException {
-//    {
-//      Parser parser = new Parser("data/Simple.cfg");
-//
-//      String s = "xxx";
-//      try {
-//        List<Action> actions = parser.parseFromString(s);
-//        tests.test(countMatches(actions.toString(), 'S'), 3); // 3 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 3); // 3 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + s + ": " + e.getMessage());
-//      }
-//
-//      s = "xxxxx";
-//      try {
-//        List<Action> actions = parser.parseFromString(s);
-//        tests.test(countMatches(actions.toString(), 'S'), 5); // 5 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 5); // 5 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + s + ": " + e.getMessage());
-//      }
-//
-//      s = "";
-//      try {
-//        List<Action> actions = parser.parseFromString(s);
-//        tests.addFailure("Should have failed to parse");
-//      } catch (ParserException e) {
-//      }
-//    }
+    {
+      Parser parser = new Parser("data/Simple.cfg");
+
+      String s = "xxx";
+      try {
+        List<Action> actions = parser.parseFromString(s);
+        tests.test(countMatches(actions.toString(), 'S'), 3); // 3 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 3); // 3 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + s + ": " + e.getMessage());
+      }
+
+      s = "xxxxx";
+      try {
+        List<Action> actions = parser.parseFromString(s);
+        tests.test(countMatches(actions.toString(), 'S'), 5); // 5 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 5); // 5 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + s + ": " + e.getMessage());
+      }
+
+      s = "";
+      try {
+        List<Action> actions = parser.parseFromString(s);
+        tests.addFailure("Should have failed to parse");
+      } catch (ParserException e) {
+      }
+    }
 //
 //    {
 //      Parser parser = new Parser("data/Paren.cfg");

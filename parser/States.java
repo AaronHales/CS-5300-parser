@@ -27,6 +27,7 @@ public class States {
         if (states.size() == 0) {
             state.setName(states.size());
             states.add(state);
+            stateSet.add(state);
             return true;
         }
 //        for (State stateList: states) {
@@ -38,14 +39,15 @@ public class States {
 //        }
 //        return false;
         boolean exists = false;
-        for (int i = 0; i < states.size(); i++) {
-            if (state.equals(states.get(i))) {
+        for (State currentState : states) {
+            if (state.equals(currentState)) {
                 exists = true;
             }
         }
         if (!exists) {
             state.setName(states.size());
             states.add(state);
+            stateSet.add(state);
             return true;
         }
         return false;

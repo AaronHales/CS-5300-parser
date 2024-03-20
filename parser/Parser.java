@@ -46,32 +46,67 @@ public class Parser {
     states = new States();
 
     // TODO: Call methods to compute the states and parsing tables here.
-    State closure = computeClosure(new Item( grammar.startRule, 0, "$"), grammar);
-    System.out.println(closure.toString());
+    State closure = computeClosure(new Item( grammar.startRule, 0, Util.EOF), grammar);
     states.addState(closure);
 
     boolean moreStates = true;
-    System.out.println("starting while loop");
     while (moreStates) {
       moreStates = false;
-      System.out.println("starting for i loop");
       for (int i = 0; i < states.size(); i++) {
-        System.out.println("starting for each symbol loop");
-        for (int j = 0; j < grammar.symbols.size(); j++) {
-          State stateOnSymbol = GOTO(states.getState(i), grammar.symbols.get(j) ,grammar);
-          System.out.println("stateOnSymbol: " + stateOnSymbol.toString());
-          moreStates = moreStates || states.addState(stateOnSymbol);
+        for (String symbol : grammar.symbols) {
+          State gotoOnSymbol = GOTO(states.getState(i), symbol, grammar);
+          if (gotoOnSymbol.size() != 0) {
+            moreStates = moreStates || states.addState(gotoOnSymbol);
+          }
         }
       }
     }
-    System.out.println("States: " + states.toString());
+    tableBuilder();
+    System.out.println(actionTableToString());
+    System.out.println(gotoTableToString());
+  }
+
+  private void tableBuilder() {
+    for (int i = 0; i < states.size(); i++) {
+      HashMap<String, Action> actionHash = new HashMap<>();
+      HashMap<String, Integer> gotoHash = new HashMap<>();
+      Action currentAction;
+      for (int j = 0; j < states.getState(i).size(); j++) {
+        Item currentItem = states.getState(i).getItem(j);
+        if (currentItem.getNextSymbol() == null) {
+          if (currentItem.getRule().equals(grammar.startRule) && currentItem.getLookahead().equals(Util.EOF)) {
+            currentAction = Action.createAccept();
+            actionHash.put(Util.EOF, currentAction);
+          }
+          else {
+            currentAction = Action.createReduce(currentItem.getRule());
+            actionHash.put(currentItem.getLookahead(), currentAction);
+          }
+        }
+        else {
+          State gotoFromState = GOTO(states.getState(i), currentItem.getNextSymbol(), grammar);
+          for (int k = 0; k < states.size(); k++) {
+            if (states.getState(k).equals(gotoFromState)) {
+              if (grammar.isTerminal(currentItem.getNextSymbol())) {
+                currentAction = Action.createShift(k);
+                actionHash.put(currentItem.getNextSymbol(), currentAction);
+              }
+              else if (grammar.isNonterminal(currentItem.getNextSymbol())) {
+                gotoHash.put(currentItem.getNextSymbol(), k);
+              }
+            }
+          }
+        }
+      }
+      actionTable.put(i, actionHash);
+      gotoTable.put(i, gotoHash);
+    }
   }
 
   public States getStates() {
     return states;
   }
 
-  // TODO: Implement this method.
   static public State computeClosure(Item I, Grammar grammar) {
     State closure = new State();
     closure.addItem(I);
@@ -106,13 +141,10 @@ public class Parser {
     return closure;
   }
 
-  static public void printClosure(State closure) {
+  static private void printClosure(State closure) {
     System.out.println(closure.toString());
   }
 
-  // TODO: Implement this method.
-  //   This returns a new state that represents the transition from
-  //   the given state on the symbol X.
   static public State GOTO(State state, String X, Grammar grammar) {
     State ret = new State();
     for (int i = 0; i < state.size(); i++) {
@@ -121,8 +153,8 @@ public class Parser {
         ret.addItem(item.advance());
       }
     }
-    for (int i = 0; i < state.size(); i++) {
-      Item item = state.getItem(i);
+    for (int i = 0; i < ret.size(); i++) {
+      Item item = ret.getItem(i);
       State closure = computeClosure(item, grammar);
       for (int j = 0; j < closure.size(); j++) {
         ret.addItem(closure.getItem(j));
@@ -131,7 +163,6 @@ public class Parser {
     return ret;
   }
 
-  // TODO: Implement this method
   // You will want to use StringBuilder. Another useful method will be String.format: for
   // printing a value in the table, use
   //   String.format("%8s", value)
@@ -139,10 +170,32 @@ public class Parser {
   // help you debug if you can format it nicely.
   public String actionTableToString() {
     StringBuilder builder = new StringBuilder();
+    builder.append(String.format("%11s", "state"));
+    for (String terminal : grammar.terminals) {
+      builder.append(String.format("%11s", terminal));
+    }
+    builder.append(String.format("%11s\n", Util.EOF));
+    for (int stateNum : actionTable.keySet()) {
+      builder.append(String.format("%11s", stateNum));
+      for (String terminal : grammar.terminals) {
+        if (actionTable.get(stateNum).get(terminal) == null) {
+          builder.append(String.format("%11s", ""));
+        }
+        else {
+          builder.append(String.format("%11s", actionTable.get(stateNum).get(terminal)));
+        }
+      }
+      if (actionTable.get(stateNum).get(Util.EOF) == null) {
+        builder.append(String.format("%11s", ""));
+      }
+      else {
+        builder.append(String.format("%11s", actionTable.get(stateNum).get(Util.EOF)));
+      }
+      builder.append("\n");
+    }
     return builder.toString();
   }
 
-  // TODO: Implement this method
   // You will want to use StringBuilder. Another useful method will be String.format: for
   // printing a value in the table, use
   //   String.format("%8s", value)
@@ -150,6 +203,23 @@ public class Parser {
   // help you debug if you can format it nicely.
   public String gotoTableToString() {
     StringBuilder builder = new StringBuilder();
+    builder.append(String.format("%11s", "state"));
+    for (String nonTerminal : grammar.nonterminals) {
+      builder.append(String.format("%11s", nonTerminal));
+    }
+    builder.append("\n");
+    for (int stateNum : gotoTable.keySet()) {
+      builder.append(String.format("%11s", stateNum));
+      for (String nonterminal : grammar.nonterminals) {
+        if (gotoTable.get(stateNum).get(nonterminal) == null) {
+          builder.append(String.format("%11s", ""));
+        }
+        else {
+          builder.append(String.format("%11s", gotoTable.get(stateNum).get(nonterminal)));
+        }
+      }
+      builder.append("\n");
+    }
     return builder.toString();
   }
 
