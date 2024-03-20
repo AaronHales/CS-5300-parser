@@ -1,7 +1,0 @@
-a = 3
-b = 4
-if a = b then
-  write (a + b * (c - d))
-else
-  write a
-end

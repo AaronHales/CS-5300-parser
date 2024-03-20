@@ -1,4 +1,0 @@
-a = 3
-if (a = b) then
-  write a = 3)
-end
