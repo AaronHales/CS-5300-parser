@@ -41,6 +41,15 @@ public class State implements Comparable<State> {
         return null;
     }
 
+    public boolean addState(State other) {
+        boolean added = false;
+        for (int i = 0; i < other.size(); i++) {
+            Item currentItem = other.getItem(i);
+            added = added || this.addItem(currentItem);
+        }
+        return added;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;

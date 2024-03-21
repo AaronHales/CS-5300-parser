@@ -164,143 +164,143 @@ public class Main {
       } catch (ParserException e) {
       }
     }
-//
-//    {
-//      Parser parser = new Parser("data/Paren.cfg");
-//
-//      String fn = "data/paren0.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 2); // 2 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 2); // 2 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/paren1.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 20); // 20 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 20); // 20 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/paren2.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//      fn = "data/paren3.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//      fn = "data/paren4.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 10); // 10 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 10); // 10 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//    }
-//    {
-//      Parser parser = new Parser("data/Expr.cfg");
-//
-//      String fn = "data/expr1.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 7); // 7 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 10); // 10 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/expr2.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//      fn = "data/expr3.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 1); // 1 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 3); // 3 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/expr4.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 15); // 15 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 22); // 22 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/expr5.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//      fn = "data/expr6.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//    }
-//
-//    {
+
+    {
+      Parser parser = new Parser("data/Paren.cfg");
+
+      String fn = "data/paren0.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 2); // 2 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 2); // 2 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/paren1.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 20); // 20 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 20); // 20 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/paren2.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+      fn = "data/paren3.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+      fn = "data/paren4.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 10); // 10 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 10); // 10 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+    }
+    {
+      Parser parser = new Parser("data/Expr.cfg");
+
+      String fn = "data/expr1.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 7); // 7 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 10); // 10 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/expr2.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+      fn = "data/expr3.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 1); // 1 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 3); // 3 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/expr4.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 15); // 15 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 22); // 22 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/expr5.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+      fn = "data/expr6.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+    }
+
+    {
 //      // TODO: To pass these tests you must implement data/Tiny.cfg
 //      //   according to the grammar given in data/tinyGrammar.pdf.
 //      //   See notes in data/Tiny.cfg (be sure to read all of them!).
-//      Parser parser = new Parser("data/Tiny.cfg");
-//
-//      String fn = "data/tiny1.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 11); // 11 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 25); // 25 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/tiny2.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.test(countMatches(actions.toString(), 'S'), 27); // 27 shift actions
-//        tests.test(countMatches(actions.toString(), 'R'), 55); // 55 reduce actions
-//      } catch (ParserException e) {
-//        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
-//      }
-//
-//      fn = "data/tiny3.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//      fn = "data/tiny4.dat";
-//      try {
-//        List<Action> actions = parser.parseFromFile(fn);
-//        tests.addFailure("Should have failed to parse " + fn);
-//      } catch (ParserException e) {
-//      }
-//
-//    }
+      Parser parser = new Parser("data/Tiny.cfg");
+
+      String fn = "data/tiny1.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 11); // 11 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 25); // 25 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/tiny2.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.test(countMatches(actions.toString(), 'S'), 27); // 27 shift actions
+        tests.test(countMatches(actions.toString(), 'R'), 55); // 55 reduce actions
+      } catch (ParserException e) {
+        tests.addFailure("Failed to parse " + fn + ": " + e.getMessage());
+      }
+
+      fn = "data/tiny3.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+      fn = "data/tiny4.dat";
+      try {
+        List<Action> actions = parser.parseFromFile(fn);
+        tests.addFailure("Should have failed to parse " + fn);
+      } catch (ParserException e) {
+      }
+
+    }
   }
 
   private static int countMatches(String s, char c) {

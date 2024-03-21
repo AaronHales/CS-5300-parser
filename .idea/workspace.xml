@@ -6,80 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b0b4cc-0faf-440d-83d1-e119fbd16204" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/.idea/libraries/antlr_4_9_1_complete.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/Grammar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarBaseListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarListenerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$GoalContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$LhsContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$NameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$Or_listContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$RhsContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$Rule_listContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$SymbolContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser$Symbol_listContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/cfgparser/GrammarParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/Expr.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/ExprLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/Paren.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/ParenLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/Simple.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/SimpleLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/Tiny.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/TinyLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/expr1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/expr2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/expr3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/expr4.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/expr5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/expr6.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/paren0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/paren1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/paren2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/paren3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/paren4.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/tiny1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/tiny2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/tiny3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/tiny4.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/data/tinyGrammar.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/ExprLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/ExprLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/ExprLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/ParenLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/ParenLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/ParenLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/SimpleLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/SimpleLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/SimpleLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/TinyLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/TinyLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/lexer/TinyLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/p3-parser.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Action$Act.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Grammar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/ParserException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Rule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/States.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Tests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/parser.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/p3-parser/parser/util/SymbolComparator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Tiny.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/data/Tiny.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/parser/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/parser/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +18,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6

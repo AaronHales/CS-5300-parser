@@ -50,6 +50,7 @@ public class Parser {
     states.addState(closure);
 
     boolean moreStates = true;
+    System.out.println(grammar.symbols);
     while (moreStates) {
       moreStates = false;
       for (int i = 0; i < states.size(); i++) {
@@ -245,6 +246,46 @@ public class Parser {
     // TODO: Parse the tokens. On an error, throw a ParseException, like so:
     //    throw ParserException.create(tokens, i)
     List<Action> actions = new ArrayList<>();
+    int pos = 0;
+    try {
+      Stack<Integer> stateStack = new Stack<>();
+      stateStack.add(0);
+      Stack<String> symbolStack = new Stack<>();
+      String currentSymbol = input.pop();
+      while (true) {
+        System.out.printf("symbol Stack: %s\n", symbolStack);
+        int topState = stateStack.peek();
+        Action currentAction = actionTable.get(topState).get(currentSymbol);
+        if (currentAction.isShift()) {
+          stateStack.push(currentAction.getState());
+          symbolStack.push(currentSymbol);
+          currentSymbol = input.pop();
+          pos++;
+          actions.add(currentAction);
+        }
+        else if (currentAction.isReduce()) {
+          Rule rule = actionTable.get(topState).get(currentSymbol).getRule();
+          int size = rule.getRhs().size();
+          for (int i = 0; i < size; i++) {
+            stateStack.pop();
+            symbolStack.pop();
+          }
+          stateStack.push(gotoTable.get(stateStack.peek()).get(rule.getLhs()));
+          symbolStack.push(rule.getLhs());
+          actions.add(currentAction);
+        }
+        else if (currentAction.isAccept()) {
+          break;
+        }
+        else {
+          throw ParserException.create(tokens, pos);
+        }
+      }
+    }
+    catch (Exception e) {
+      throw ParserException.create(tokens, pos);
+    }
+    System.out.printf("actions: %s\n", actions);
     return actions;
   }
 
